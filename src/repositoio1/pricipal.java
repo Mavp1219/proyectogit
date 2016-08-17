@@ -84,14 +84,17 @@ public class pricipal extends javax.swing.JFrame {
         jLabel2.setText("OBTENGA SU PORCENTAJE");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 180, 30));
 
-        jLabel3.setText("PERSONA 1");
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 70, 30));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setText("% PERSONA 1:");
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 80, 30));
 
-        jLabel4.setText("PERSONA 2");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setText("& PERSONA 2:");
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 80, 30));
 
-        jLabel5.setText("PERSONA 3");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 80, 30));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setText("% PERSONA 3: ");
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 90, 30));
 
         cmdcalcular.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         cmdcalcular.setText("OBTENER PORCENTAJE");
@@ -117,6 +120,7 @@ public class pricipal extends javax.swing.JFrame {
         jPanel4.add(txtvalor2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 120, 30));
         jPanel4.add(txtvalor3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 120, 30));
 
+        txtresultado1.setEditable(false);
         txtresultado1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtresultado1ActionPerformed(evt);
@@ -126,11 +130,14 @@ public class pricipal extends javax.swing.JFrame {
 
         jLabel7.setText("RESULTADO P2");
         jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 100, 30));
+
+        txtresultado2.setEditable(false);
         jPanel4.add(txtresultado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 120, 30));
 
         jLabel8.setText("RESULTADO P3");
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 100, 30));
 
+        txtresultado3.setEditable(false);
         txtresultado3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtresultado3ActionPerformed(evt);
