@@ -42,7 +42,11 @@ public class pricipal extends javax.swing.JFrame {
         txtvalor1 = new javax.swing.JTextField();
         txtvalor2 = new javax.swing.JTextField();
         txtvalor3 = new javax.swing.JTextField();
-        txtresultado = new javax.swing.JTextField();
+        txtresultado1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtresultado2 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtresultado3 = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -94,7 +98,7 @@ public class pricipal extends javax.swing.JFrame {
                 cmdcalcularActionPerformed(evt);
             }
         });
-        jPanel4.add(cmdcalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
+        jPanel4.add(cmdcalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
 
         cmdborrar.setText("BORRAR");
         cmdborrar.addActionListener(new java.awt.event.ActionListener() {
@@ -102,29 +106,37 @@ public class pricipal extends javax.swing.JFrame {
                 cmdborrarActionPerformed(evt);
             }
         });
-        jPanel4.add(cmdborrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, -1, -1));
+        jPanel4.add(cmdborrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, -1, -1));
 
-        jLabel6.setText("RESULTADO");
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
+        jLabel6.setText("RESULTADO P1 ");
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 90, 20));
         jPanel4.add(txtvalor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 120, -1));
         jPanel4.add(txtvalor2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 120, -1));
         jPanel4.add(txtvalor3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 120, -1));
 
-        txtresultado.addActionListener(new java.awt.event.ActionListener() {
+        txtresultado1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtresultadoActionPerformed(evt);
+                txtresultado1ActionPerformed(evt);
             }
         });
-        jPanel4.add(txtresultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 130, 20));
+        jPanel4.add(txtresultado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 90, 20));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 420, 310));
+        jLabel7.setText("RESULTADO P2");
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 254, 100, 20));
+        jPanel4.add(txtresultado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 90, 20));
+
+        jLabel8.setText("RESULTADO P3");
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 90, 20));
+        jPanel4.add(txtresultado3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 90, 20));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdcalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdcalcularActionPerformed
         double valor1,valor2,valor3,pv1,pv2,pv3,vlt;
-        String n1,n2,n3,ress;
+        String n1,n2,n3,res;
         
         valor1 = Double.parseDouble(txtvalor1.getText());
         valor2 = Double.parseDouble(txtvalor2.getText());
@@ -138,20 +150,22 @@ public class pricipal extends javax.swing.JFrame {
         
         pv3 = valor3 + vlt / 100;
         
-        ress= String.valueOf(cmdcalcular);
-        
-         txtresultado.setText(ress);
+       txtresultado1.setText(String.valueOf(pv1));
+       txtresultado2.setText(String.valueOf(pv2));
+       txtresultado3.setText(String.valueOf(pv3));
     }//GEN-LAST:event_cmdcalcularActionPerformed
 
-    private void txtresultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtresultadoActionPerformed
+    private void txtresultado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtresultado1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtresultadoActionPerformed
+    }//GEN-LAST:event_txtresultado1ActionPerformed
 
     private void cmdborrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdborrarActionPerformed
        txtvalor1.setText("");
       txtvalor2.setText("");
       txtvalor3.setText("");
-      txtresultado.setText("");
+      txtresultado1.setText("");
+      txtresultado2.setText("");
+      txtresultado3.setText("");
       
       txtvalor1.requestFocusInWindow();
      
@@ -201,11 +215,15 @@ public class pricipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField txtresultado;
+    private javax.swing.JTextField txtresultado1;
+    private javax.swing.JTextField txtresultado2;
+    private javax.swing.JTextField txtresultado3;
     private javax.swing.JTextField txtvalor1;
     private javax.swing.JTextField txtvalor2;
     private javax.swing.JTextField txtvalor3;
