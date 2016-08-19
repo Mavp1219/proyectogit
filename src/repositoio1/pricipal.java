@@ -5,6 +5,8 @@
  */
 package repositoio1;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author user
@@ -114,10 +116,34 @@ public class pricipal extends javax.swing.JFrame {
         });
         jPanel4.add(cmdborrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, -1, -1));
 
-        jLabel6.setText("RESULTADO P1 ");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setText("RESULTADO P1 :");
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 110, 20));
+
+        txtvalor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtvalor1ActionPerformed(evt);
+            }
+        });
+        txtvalor1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtvalor1KeyTyped(evt);
+            }
+        });
         jPanel4.add(txtvalor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 120, 30));
+
+        txtvalor2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtvalor2KeyTyped(evt);
+            }
+        });
         jPanel4.add(txtvalor2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 120, 30));
+
+        txtvalor3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtvalor3KeyTyped(evt);
+            }
+        });
         jPanel4.add(txtvalor3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 120, 30));
 
         txtresultado1.setEditable(false);
@@ -128,13 +154,15 @@ public class pricipal extends javax.swing.JFrame {
         });
         jPanel4.add(txtresultado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 120, 30));
 
-        jLabel7.setText("RESULTADO P2");
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setText("RESULTADO P2 :");
         jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 100, 30));
 
         txtresultado2.setEditable(false);
         jPanel4.add(txtresultado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 120, 30));
 
-        jLabel8.setText("RESULTADO P3");
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel8.setText("RESULTADO P3 :");
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 100, 30));
 
         txtresultado3.setEditable(false);
@@ -151,23 +179,64 @@ public class pricipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdcalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdcalcularActionPerformed
-        double valor1,valor2,valor3,pv1,pv2,pv3,vlt;
+        String v1,v2,v3,res;
+        double valor1 = 0, valor2 = 0, valor3 = 0, pv1, pv2, pv3, vlt;
         
-        valor1 = Double.parseDouble(txtvalor1.getText());
-        valor2 = Double.parseDouble(txtvalor2.getText());
-        valor3 = Double.parseDouble(txtvalor3.getText());
+        txtresultado1.setText("");
+        txtresultado2.setText("");
+        txtresultado3.setText("");
         
-        vlt = valor1 + valor2 + valor3;
-        
-        pv1 = (valor1 / vlt) * 100;
-        
-        pv2 = (valor2 / vlt) * 100;
-        
-        pv3 = (valor3 / vlt) * 100;
-        
-       txtresultado1.setText(String.valueOf(pv1)+ "%");
-       txtresultado2.setText(String.valueOf(pv2) + "%");
-       txtresultado3.setText(String.valueOf(pv3) + "%");
+        if (txtvalor1.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite el valor 1", "Error", JOptionPane.ERROR_MESSAGE);
+            txtvalor1.requestFocusInWindow();
+        } else if (txtvalor2.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite el valor 2", "Error", JOptionPane.ERROR_MESSAGE);
+            txtvalor2.requestFocusInWindow();
+        } else if (txtvalor3.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite el valor 3", "Error", JOptionPane.ERROR_MESSAGE);
+            txtvalor3.requestFocusInWindow();
+        } else {
+
+            if (valor1 == 0) {
+                JOptionPane.showMessageDialog(this, "No se permite el numero 0", "Error", JOptionPane.ERROR_MESSAGE);
+                txtvalor1.requestFocusInWindow();
+                txtvalor1.selectAll();
+            }
+            else if (valor2 == 0) {
+                JOptionPane.showMessageDialog(this, "No se permite el numero 0", "Error", JOptionPane.ERROR_MESSAGE);
+                txtvalor2.requestFocusInWindow();
+                txtvalor2.selectAll();
+            }
+            else if (valor3 == 0) {
+                JOptionPane.showMessageDialog(this, "No se permite el numero 0", "Error", JOptionPane.ERROR_MESSAGE);
+                txtvalor3.requestFocusInWindow();
+                txtvalor3.selectAll();
+            }
+
+            valor1 = Double.parseDouble(txtvalor1.getText());
+            valor2 = Double.parseDouble(txtvalor2.getText());
+            valor3 = Double.parseDouble(txtvalor3.getText());
+
+            vlt = valor1 + valor2 + valor3;
+
+            pv1 = (valor1 / vlt) * 100;
+
+            pv2 = (valor2 / vlt) * 100;
+
+            pv3 = (valor3 / vlt) * 100;
+
+            res = String.valueOf(vlt);
+            res = String.valueOf(pv1);
+            res = String.valueOf(pv2);
+            res = String.valueOf(pv3);
+            
+            txtresultado1.setText(String.valueOf(pv1) + "%");
+            txtresultado2.setText(String.valueOf(pv2) + "%");
+            txtresultado3.setText(String.valueOf(pv3) + "%");
+
+        }
+
+
     }//GEN-LAST:event_cmdcalcularActionPerformed
 
     private void txtresultado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtresultado1ActionPerformed
@@ -175,20 +244,51 @@ public class pricipal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtresultado1ActionPerformed
 
     private void cmdborrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdborrarActionPerformed
-       txtvalor1.setText("");
-      txtvalor2.setText("");
-      txtvalor3.setText("");
-      txtresultado1.setText("");
-      txtresultado2.setText("");
-      txtresultado3.setText("");
-      
-      txtvalor1.requestFocusInWindow();
-     
+        txtvalor1.setText("");
+        txtvalor2.setText("");
+        txtvalor3.setText("");
+        txtresultado1.setText("");
+        txtresultado2.setText("");
+        txtresultado3.setText("");
+
+        txtvalor1.requestFocusInWindow();
+
     }//GEN-LAST:event_cmdborrarActionPerformed
 
     private void txtresultado3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtresultado3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtresultado3ActionPerformed
+
+    private void txtvalor1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvalor1KeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtvalor1KeyTyped
+
+    private void txtvalor2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvalor2KeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();;
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtvalor2KeyTyped
+
+    private void txtvalor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtvalor1ActionPerformed
+    }//GEN-LAST:event_txtvalor1ActionPerformed
+
+    private void txtvalor3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtvalor3KeyTyped
+
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtvalor3KeyTyped
 
     /**
      * @param args the command line arguments
