@@ -179,13 +179,13 @@ public class pricipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdcalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdcalcularActionPerformed
-        String v1,v2,v3,res;
+        String v1, v2, v3, res;
         double valor1 = 0, valor2 = 0, valor3 = 0, pv1, pv2, pv3, vlt;
-        
+
         txtresultado1.setText("");
         txtresultado2.setText("");
         txtresultado3.setText("");
-        
+
         if (txtvalor1.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Digite el valor 1", "Error", JOptionPane.ERROR_MESSAGE);
             txtvalor1.requestFocusInWindow();
@@ -197,42 +197,38 @@ public class pricipal extends javax.swing.JFrame {
             txtvalor3.requestFocusInWindow();
         } else {
 
-            if (valor1 == 0) {
-                JOptionPane.showMessageDialog(this, "No se permite el numero 0", "Error", JOptionPane.ERROR_MESSAGE);
-                txtvalor1.requestFocusInWindow();
-                txtvalor1.selectAll();
-            }
-            else if (valor2 == 0) {
-                JOptionPane.showMessageDialog(this, "No se permite el numero 0", "Error", JOptionPane.ERROR_MESSAGE);
-                txtvalor2.requestFocusInWindow();
-                txtvalor2.selectAll();
-            }
-            else if (valor3 == 0) {
-                JOptionPane.showMessageDialog(this, "No se permite el numero 0", "Error", JOptionPane.ERROR_MESSAGE);
-                txtvalor3.requestFocusInWindow();
-                txtvalor3.selectAll();
-            }
-
             valor1 = Double.parseDouble(txtvalor1.getText());
             valor2 = Double.parseDouble(txtvalor2.getText());
             valor3 = Double.parseDouble(txtvalor3.getText());
 
-            vlt = valor1 + valor2 + valor3;
+            if (valor1 == 0) {
+                JOptionPane.showMessageDialog(this, "No se permite el numero 0", "Error", JOptionPane.ERROR_MESSAGE);
+                txtvalor1.requestFocusInWindow();
+                txtvalor1.selectAll();
+            } else if (valor2 == 0) {
+                JOptionPane.showMessageDialog(this, "No se permite el numero 0", "Error", JOptionPane.ERROR_MESSAGE);
+                txtvalor2.requestFocusInWindow();
+                txtvalor2.selectAll();
+            } else {
 
-            pv1 = (valor1 / vlt) * 100;
+                vlt = valor1 + valor2 + valor3;
 
-            pv2 = (valor2 / vlt) * 100;
+                pv1 = (valor1 / vlt) * 100;
 
-            pv3 = (valor3 / vlt) * 100;
+                pv2 = (valor2 / vlt) * 100;
 
-            res = String.valueOf(vlt);
-            res = String.valueOf(pv1);
-            res = String.valueOf(pv2);
-            res = String.valueOf(pv3);
-            
-            txtresultado1.setText(String.valueOf(pv1) + "%");
-            txtresultado2.setText(String.valueOf(pv2) + "%");
-            txtresultado3.setText(String.valueOf(pv3) + "%");
+                pv3 = (valor3 / vlt) * 100;
+
+                res = String.valueOf(vlt);
+                res = String.valueOf(pv1);
+                res = String.valueOf(pv2);
+                res = String.valueOf(pv3);
+
+                txtresultado1.setText(String.valueOf(pv1) + "%");
+                txtresultado2.setText(String.valueOf(pv2) + "%");
+                txtresultado3.setText(String.valueOf(pv3) + "%");
+
+            }
 
         }
 
