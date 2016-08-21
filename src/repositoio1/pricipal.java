@@ -202,14 +202,19 @@ public class pricipal extends javax.swing.JFrame {
             valor3 = Double.parseDouble(txtvalor3.getText());
 
             if (valor1 == 0) {
-                JOptionPane.showMessageDialog(this, "No se permite el numero 0", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "No se permite un valor 0", "Error", JOptionPane.ERROR_MESSAGE);
                 txtvalor1.requestFocusInWindow();
                 txtvalor1.selectAll();
             } else if (valor2 == 0) {
-                JOptionPane.showMessageDialog(this, "No se permite el numero 0", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "No se permite un valor 0", "Error", JOptionPane.ERROR_MESSAGE);
                 txtvalor2.requestFocusInWindow();
                 txtvalor2.selectAll();
-            } else {
+            } else if (valor3 == 0) {
+                JOptionPane.showMessageDialog(this, "No se permite un valor0", "Error", JOptionPane.ERROR_MESSAGE);
+                txtvalor3.requestFocusInWindow();
+                txtvalor3.selectAll();
+            }
+            {
 
                 vlt = valor1 + valor2 + valor3;
 
